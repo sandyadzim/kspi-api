@@ -16,6 +16,7 @@ app.group('/kspi', (router) => {
 
     // Login
     router.post('/login', AuthController.login)
+    router.post('/register', AuthController.register)
 
     // Anggota
     router.get('/anggota', AnggotaController.showAnggota)

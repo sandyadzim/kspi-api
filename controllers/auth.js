@@ -29,3 +29,25 @@ exports.login = (req, res) => {
         }
     })
 }
+
+exports.register = (req, res) => {
+    const {name, email, password} = req.body
+
+    User.findOrCreate({
+        where: {name, email, password}
+    })
+    .then( ([user, created]) => {
+        if(created){
+            const token = jwt.sign({createdId: created.id}, 'my-secret-key')
+            res.send({
+                name,
+                email,
+                token
+            })
+        } else {
+            res.send({
+                message: 'Email yang anda masukkan sudah digunakan'
+            })
+        }
+    })
+}
