@@ -1,12 +1,27 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('anggota', {
+    return queryInterface.createTable('members', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
+      },
+      federasi: {
+        type: Sequelize.STRING
+      },
+      sp: {
+        type: Sequelize.STRING
+      },
+      lembaga: {
+        type: Sequelize.STRING
+      },
+      puk: {
+        type: Sequelize.STRING
+      },
+      wilayah: {
+        type: Sequelize.STRING
       },
       name: {
         type: Sequelize.STRING
@@ -43,6 +58,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('anggota');
+    return queryInterface.dropTable('members');
   }
 };

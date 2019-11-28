@@ -1,19 +1,24 @@
 const models = require('../models')
-const Anggota = models.anggota
+const Member = models.member
 
 exports.showAnggota = (req, res) => {
-    Anggota.findAll().then(result => res.send(result))
+    Member.findAll().then(result => res.send(result))
 }
 
 exports.showAnggotaById = (req, res) => {
-    Anggota.findAll({
+    Member.findAll({
         where: {id: req.params.anggota_id}
     }).then(result => res.send(result))
 }
 
 exports.createAnggota = (req, res) => {
-    const {name, jenis_kelamin, status_karyawan, status_pkb, alamat, hp_telp, email, foto} = req.body
-    Anggota.create({
+    const {federasi, sp, lembaga, puk, wilayah, name, jenis_kelamin, status_karyawan, status_pkb, alamat, hp_telp, email, foto} = req.body
+    Member.create({
+        federasi,
+        sp,
+        lembaga,
+        puk,
+        wilayah,
         name,
         jenis_kelamin,
         status_karyawan,
@@ -32,8 +37,13 @@ exports.createAnggota = (req, res) => {
 }
 
 exports.updateAnggota = (req, res) => {
-    const {name, jenis_kelamin, status_karyawan, status_pkb, alamat, hp_telp, email, foto} = req.body
-    Anggota.update({
+    const {federasi, sp, lembaga, puk, wilayah, name, jenis_kelamin, status_karyawan, status_pkb, alamat, hp_telp, email, foto} = req.body
+    Member.update({
+        federasi,
+        sp,
+        lembaga,
+        puk,
+        wilayah,
         name,
         jenis_kelamin,
         status_karyawan,
@@ -63,7 +73,7 @@ exports.updateAnggota = (req, res) => {
 }
 
 exports.deleteAnggota = (req, res) => {
-    Anggota.destroy({
+    Member.destroy({
         where: {id: req.params.anggota_id}
     })
     .then(result => {
