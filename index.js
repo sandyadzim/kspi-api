@@ -20,8 +20,8 @@ app.group('/kspi', (router) => {
 
     // Anggota
     router.get('/anggota', AnggotaController.showAnggota)
-    router.get('/anggota/:anggota_id', authenticated, AnggotaController.showAnggotaById)
-    router.post('/anggota', authenticated, AnggotaController.createAnggota)
+    router.get('/anggota/:anggota_id', AnggotaController.showAnggotaById)
+    router.post('/anggota', AnggotaController.createAnggota)
     router.put('/anggota/:anggota_id', authenticated, AnggotaController.updateAnggota)
     router.delete('/anggota/:anggota_id', authenticated, AnggotaController.deleteAnggota)
 })
