@@ -26,4 +26,4 @@ app.group('/kspi', (router) => {
     router.delete('/anggota/:anggota_id', authenticated, AnggotaController.deleteAnggota)
 })
 // app.listen(port, () => console.log('Listening o Port ${4000}'))
-app.listen(process.env.PORT||7000, () => console.log('Listening o Port ${4000}'))
+app.listen(process.env.PORT||4000, () => console.log(`Listening o Port ${4000}`))
